@@ -134,15 +134,7 @@
                     </div>
                 </div>
 
-                <div class="form-group  row">
-                    <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Password </label>
-
-                    <div class="input-group col-sm-8 col-xs-11">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-lock"></i></span></div>
-                        <input type="password" class="form-control" name="password" id="title" placeholder="Password Here" required="">
-                    </div>
-                </div>
-
+               
                 <div class="form-group  row">
                     <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Profile Picture </label>
 
