@@ -99,7 +99,7 @@ $today = date('Y-m-d');
                         <div class="card-header py-3">
                         	<div class="row">
                             	<div class="col">
-                            		<h6 class="h3 m-0 font-weight-bold text-success">Location: Bayambang, Pangasinan</h6>
+                            		<h6 class="h3 m-0 font-weight-bold text-success">Location: San Carlos City, Pangasinan</h6>
                             	</div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ $today = date('Y-m-d');
 
 
                     
-                    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=bayambang%20pangasinan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=san%20carlos%city%20pangasinan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                       <div></div>
                 
                 </div>
