@@ -14,8 +14,7 @@
 		$city = $_POST['city'];
 		$state = $_POST['state'];
 		$sname = $_POST['sname'];
-		$position = "Farmer";
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+		$position = "Shop Owner";
 
         $fileinfo=PATHINFO($_FILES["photo"]["name"]);
         $newFilename=$fileinfo['filename']. "." . $fileinfo['extension'];
@@ -39,26 +38,19 @@
     
     
     
-    
-        if ($count == 1 ) {
-        $_SESSION['error'] = 'Have already Email Address ';
-    
-        } 
-        
-        else{
-
-            
-        $insert = "INSERT INTO shop(farmerid, photo, fname, lname, email, position, contactno, shop_category, street, city, state, password,shop_logo, shop_name, regDate) 
-		VALUES ('$farmerid', '$location', '$fname', '$lname', '$email', '$position', '$contact','$shop_category', '$street', '$city', '$state', '$password', '$location1', '$sname', NOW())";
-		if($conn->query($insert)){
-			$_SESSION['success'] = 'Shop Added successfully';
+        if ($count == 1) {
+			$_SESSION['error'] = 'Email already exists!';
+		} else {
+			// Insert into shop table
+			$insert = "INSERT INTO farmer (farmerid, photo, fname, lname, email, position, contactno, `shop_category`, street, city, state, shop_logo, shop_name, regDate) 
+			VALUES ('$farmerid', '$location', '$fname', '$lname', '$email', '$position', '$contact', '$shop_category', '$street', '$city', '$state', '$location1', '$sname', NOW())";
+	
+			if ($conn->query($insert) === TRUE) {
+				$_SESSION['success'] = 'Shop Added successfully';
+			} else {
+				$_SESSION['error'] = "Error: " . $conn->error . " - Query: " . $insert;
+			}
 		}
-		else{
-			$_SESSION['error'] = $conn->error;
-		}
-
-
-	}
 }
 
 
