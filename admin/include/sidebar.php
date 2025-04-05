@@ -223,7 +223,7 @@
            <?php
 
             $sql = " SELECT  o.order_id, 
-                                            f.farmerid AS farmer_id, 
+                                            f.shopid AS shop_id, 
                                             c.customer_id, 
                                             o.orderDate, 
                                             o.total_q, 
@@ -232,7 +232,7 @@
                                             o.paymentMethod
                                         FROM orders o
                                         JOIN customer c ON o.customer_id = c.id
-                                        JOIN farmer f ON o.farmer_id = f.id
+                                        JOIN shops f ON o.shop_id = f.id
                                         WHERE  o.orderDate = '$today' AND o.orderStatus NOT IN ('Delivered', 'Cancel', 'wait')";
             $query = $conn->query($sql);
             $result = $query->num_rows;

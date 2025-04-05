@@ -21,9 +21,9 @@ include('include/config.php');
 
 
 
-                        <?php include('component/farmer_shop.php'); ?>
+                        <?php include('component/shop.php'); ?>
                         <br>
-                        <?php include('component/category_farmer.php'); ?>
+                        <?php include('component/category_shop.php'); ?>
 
                     </div>
                     <br>

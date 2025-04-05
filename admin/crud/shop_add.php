@@ -4,7 +4,7 @@
 	include 'session.php';
 
 	if(isset($_POST['submit'])){
-		$farmerid = $_POST['farmerid'];
+		$shopid = $_POST['shopid'];
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$email = $_POST['email'];
@@ -28,7 +28,7 @@
 
 
 
-        $sql = "SELECT email FROM farmer  WHERE email = '".$email."' ";
+        $sql = "SELECT email FROM shops  WHERE email = '".$email."' ";
         $query = $conn->query($sql);
         $result = mysqli_query($conn,$sql);
         $count = mysqli_num_rows($result);
@@ -42,8 +42,8 @@
 			$_SESSION['error'] = 'Email already exists!';
 		} else {
 			// Insert into shop table
-			$insert = "INSERT INTO farmer (farmerid, photo, fname, lname, email, position, contactno, `shop_category`, street, city, state, shop_logo, shop_name, regDate) 
-			VALUES ('$farmerid', '$location', '$fname', '$lname', '$email', '$position', '$contact', '$shop_category', '$street', '$city', '$state', '$location1', '$sname', NOW())";
+			$insert = "INSERT INTO shops (shopid, photo, fname, lname, email, position, contactno, `shop_category`, street, city, state, shop_logo, shop_name, regDate) 
+			VALUES ('$shopid', '$location', '$fname', '$lname', '$email', '$position', '$contact', '$shop_category', '$street', '$city', '$state', '$location1', '$sname', NOW())";
 	
 			if ($conn->query($insert) === TRUE) {
 				$_SESSION['success'] = 'Shop Added successfully';

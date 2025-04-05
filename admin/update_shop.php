@@ -7,17 +7,17 @@
 <div class="content-wrapper">
 
     <section class="content-header">
-        <h1 class="h3 mb-4 text-gray">Farmer List</h1>
+        <h1 class="h3 mb-4 text-gray">Shop List</h1>
     </section>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row">
                 <div class="col">
-                    <h6 class="h3 m-0 font-weight-bold text-success">Farmer Info</h6>
+                    <h6 class="h3 m-0 font-weight-bold text-success">Shop Info</h6>
                     <?php
                     $ID = $_GET['id'];
-                    $view = "SELECT * from farmer where id = '$ID'";
+                    $view = "SELECT * from shops where id = '$ID'";
                     $result = $conn->query($view);
                     $row = $result->fetch_assoc();
 
@@ -31,11 +31,11 @@
             <form class="form-horizontal" method="POST" action="crud/update_shop.php" enctype="multipart/form-data" id="doctor_form">
 
                 <div class="form-group  row">
-                    <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Farmer ID </label>
+                    <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Shop ID </label>
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-circle"></i></span></div>
-                        <input type="text" class="form-control" name="fname" id="title" value="<?php echo $row['farmerid']; ?>" placeholder="Farmers ID Here" required="">
+                        <input type="text" class="form-control" name="fname" id="title" value="<?php echo $row['shopid']; ?>" placeholder="Shop ID Here" required="">
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="fname" id="title" placeholder="Farmer Last Name Here" required="" value="<?php echo $row['fname']; ?>" required>
+                        <input type="text" class="form-control" name="fname" id="title" placeholder="Shop First Name Here" required="" value="<?php echo $row['fname']; ?>" required>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="lname" id="title" placeholder="Farmer Last Name Here" required="" value="<?php echo $row['lname']; ?>" required>
+                        <input type="text" class="form-control" name="lname" id="title" placeholder="Shop Last Name Here" required="" value="<?php echo $row['lname']; ?>" required>
                     </div>
                 </div>
 

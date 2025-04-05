@@ -6,12 +6,12 @@ if (isset($_GET['id'])) {
 	$query_p = mysqli_query($conn, $sql_p);
 	if (mysqli_num_rows($query_p) != 0) {
 		$row_p = mysqli_fetch_array($query_p);
-		$farmer_id = $row_p['farmer_id'];
+		$shop_id = $row_p['shop_id'];
 		$customer_id = $user['id'];
 		$product_id = $_GET['id'];
 
-		$insert = "INSERT INTO cart( farmer_id, customer_id,  product_id, cart_quantity, cart_date)
-					VALUES( '$farmer_id', '$customer_id', '$product_id', '1', NOW())";
+		$insert = "INSERT INTO cart( shop_id, customer_id,  product_id, cart_quantity, cart_date)
+					VALUES( '$shop_id', '$customer_id', '$product_id', '1', NOW())";
 		$query = mysqli_query($conn, $insert);
 
 		$_SESSION['success'] = '"Product has been added to the cart';
@@ -53,7 +53,7 @@ $sid = intval($_GET['sid']); ?>
 								<!-- ============================================== SIDEBAR CATEGORY ============================================== -->
 								<div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
 									<div class="widget-header m-t-20">
-										<h4 class="widget-title">Farmer Shop Category</h4>
+										<h4 class="widget-title">Shop Category</h4>
 									</div>
 									<div class="sidebar-widget-body m-t-10">
 										<?php $sql = mysqli_query($conn, "SELECT * from category ");

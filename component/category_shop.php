@@ -6,7 +6,7 @@
 		            <?php 
 					$id = $_GET['id'];
 					$sql=mysqli_query($conn,"SELECT *, subcategory.id AS sid FROM subcategory LEFT JOIN category 
-					ON category.id = subcategory.categoryid WHERE farmer_id = '$id' ");
+					ON category.id = subcategory.categoryid WHERE shop_id = '$id' ");
 while($row=mysqli_fetch_array($sql))
 {
     ?>

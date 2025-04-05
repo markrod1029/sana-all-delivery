@@ -92,7 +92,7 @@ $cid = intval($_GET['cid']); ?>
 									<div class="category-product  inner-top-vs">
 										<div class="row">
 											<?php
-											$ret = mysqli_query($conn, "SELECT * FROM farmer WHERE shop_category = '$cid' ");
+											$ret = mysqli_query($conn, "SELECT * FROM shops WHERE shop_category = '$cid' ");
 											$num = mysqli_num_rows($ret);
 											if ($num > 0) {
 												while ($row = mysqli_fetch_array($ret)) { ?>

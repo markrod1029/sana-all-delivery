@@ -7,7 +7,7 @@
   <div class="content-wrapper">
 
         <section class="content-header">
-            <h1 class="h3 mb-4 text-gray">Farmer List</h1>
+            <h1 class="h3 mb-4 text-gray">Shop List</h1>
         </section>
 
 
@@ -64,7 +64,7 @@
       
 
 
-                    $sql = "SELECT * FROM farmer ";
+                    $sql = "SELECT * FROM shops ";
 
                     $query = mysqli_query($conn, $sql);
                     while ($row = mysqli_fetch_assoc($query)) 
@@ -74,7 +74,7 @@
                         <tr>
                         <td><img src="<?php echo (!empty($row['photo']))? '../images/'.$row['photo']:'../images/admin.png'; ?>" width="50px" height="50px"> 
                        </td>
-                        <td><?php echo $row['farmerid'];?></td>
+                        <td><?php echo $row['shopid'];?></td>
                         <td><?php echo $row['fname']. ' '.$row['lname'];?></td>
                         <td><?php echo $row['email'];?></td>
                         <td><?php echo $row['contactno'];?></td>

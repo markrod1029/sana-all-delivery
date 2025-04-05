@@ -57,7 +57,7 @@ window.onload = function() {
                                     <thead>
                                         <tr>
                                             <th>Order ID</th>
-                                            <th>Farmer Location</th>
+                                            <th>Shop Location</th>
                                             <th>Status Delivery</th>
                                             <th>Remark</th>
                                             <th>Date & Time</th>
@@ -73,7 +73,7 @@ window.onload = function() {
                     ?>
                         <tr>
                         <td><?php echo $row['order_id'];?></td>
-                        <td><?php echo $row['farmer_location']?></td>
+                        <td><?php echo $row['shop_location']?></td>
                         <td><?php echo $row['status']?></td>
                         <td><?php echo $row['remark']?></td>
                         <td><?php echo $row['postingDate']?></td>

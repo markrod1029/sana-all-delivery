@@ -40,7 +40,7 @@ include('include/config.php');
                             <div class="product-slider">
                                 <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="4">
                                     <?php
-                                    $ret = mysqli_query($conn, "SELECT * FROM farmer");
+                                    $ret = mysqli_query($conn, "SELECT * FROM shops");
                                     while ($row = mysqli_fetch_array($ret)) {
                                     ?>
                                         <div class="item item-carousel">

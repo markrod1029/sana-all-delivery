@@ -17,15 +17,15 @@ $today = date('Y-m-d');
           <div class="row  mx-auto">
 
 <div class="col-sm-3  mx-auto">
-  <a href="farmer.php">
+  <a href="shop.php">
   <div class="info-box bg-gradient-primary">
     <span class="info-box-icon"><i class="far fa-user-alt"></i></span>
       <div class="info-box-content">
-        <span class="info-box-text ">Farmers</span>
+        <span class="info-box-text ">Shops</span>
 
         <?php
 
-                $sql = "SELECT * FROM farmer ";
+                $sql = "SELECT * FROM shops ";
                 $query = $conn->query($sql);
                 $total = $query->num_rows;
               ?>

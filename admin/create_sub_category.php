@@ -28,20 +28,20 @@
                             <form  class="form-horizontal box-show" method="POST" action="crud/category_sub_add.php" enctype="multipart/form-data" id="doctor_form">
         
                             <div class="input-group mb-3 ">
-                        <label for="cono1" class="col-sm-2 text-right control-label col-form-label text-muted">Farmer Name</label>
+                        <label for="cono1" class="col-sm-2 text-right control-label col-form-label text-muted">Shop Name</label>
 
                         
                         <div class="input-group col-sm-8 col-xs-11">
 
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-tag"></i></span></div>
-                        <select type = "text" class="form-control span8 tip" name="farmer_id"  onChange="getSubcat(this.value);"  required>
+                        <select type = "text" class="form-control span8 tip" name="shop_id"  onChange="getSubcat(this.value);"  required>
                                         <option value="" selected>- Select -</option>
                                             
-                                        <?php $query=mysqli_query($conn,"select * from farmer");
+                                        <?php $query=mysqli_query($conn,"select * from shops");
                                             while($row=mysqli_fetch_array($query))
                                             {?>
 
-                                            <option value="<?php echo $row['id'];?>">Farmer <?php echo $row['fname']. ' ' .$row['lname'];?></option>
+                                            <option value="<?php echo $row['id'];?>">Shop <?php echo $row['fname']. ' ' .$row['lname'];?></option>
                                             <?php } ?>
                                     
                                     

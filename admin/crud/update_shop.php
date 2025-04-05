@@ -19,7 +19,7 @@
 
 
 		
-        $sql = "UPDATE farmer SET  fname = '$fname',  lname = '$lname', email = '$email', contactno = '$contact',
+        $sql = "UPDATE shops SET  fname = '$fname',  lname = '$lname', email = '$email', contactno = '$contact',
 		shop_category = '$shop_category', street = '$street', city = '$city', state = '$state', password = '$password', shop_name = '$sname'  WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Shop Updated successfully';

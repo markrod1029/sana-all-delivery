@@ -144,7 +144,7 @@ include('include/session.php');
 						<td class="cart-product-sub-total"><span class="cart-sub-total-price"><?php echo "Php" . " " . $view1['productPrice']; ?>.00</span></td>
 						<td class="cart-product-grand-total"><span class="cart-grand-total-price"><?php echo $pid = ($quantity * $view1['productPrice'] + $view1['shippingCharge']); ?>.00</span></td>
 						<input type="hidden" name="pid[]" value="<?php echo $pid; ?>">
-						<input type="hidden" value="<?php echo $view1['farmer_id']; ?>" name="farmer[]">
+						<input type="hidden" value="<?php echo $view1['shop_id']; ?>" name="farmer[]">
 						<input type="hidden" value="<?php echo $view1['product_id']; ?>" name="product[]">
 						<input type="hidden" value="<?php echo $view1['cart_id']; ?>" name="cart_id[]">
 						<input type="hidden" value="<?php echo $view1['cart_quantity']; ?>" name="cart_quantity[]">

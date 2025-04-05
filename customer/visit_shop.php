@@ -22,9 +22,9 @@ include('include/session.php');
 
 
 
-						<?php include('component/farmer_shop.php'); ?>
+						<?php include('component/shop.php'); ?>
 						<br>
-						<?php include('component/category_farmer.php'); ?>
+						<?php include('component/category_shop.php'); ?>
 
 					</div>
 					<br>
@@ -32,7 +32,7 @@ include('include/session.php');
 
 
 					<?php
-					$ret = mysqli_query($conn, "SELECT * from products WHERE farmer_id = '$id'");
+					$ret = mysqli_query($conn, "SELECT * from products WHERE shop_id = '$id'");
 					while ($row = mysqli_fetch_array($ret)) { ?>
 
 						<div class="col-sm-2 mt-4 wow1">

@@ -48,7 +48,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Product Name</th>
-                                            <th>Farmer ID</th>
+                                            <th>Shop ID</th>
                                             <th>category</th>
                                             <th>Sub Category</th>
                                             <th>Product Price</th>
@@ -65,8 +65,8 @@
 
                     $sql = "SELECT *, products.id AS pid FROM products
                      LEFT JOIN subcategory ON subcategory.id =  products.subCategory_id
-                     LEFT JOIN farmer ON farmer.id =  products.farmer_id 
-                     LEFT JOIN category ON category.id=farmer.shop_category ";
+                     LEFT JOIN shops ON shops.id =  products.shop_id 
+                     LEFT JOIN category ON category.id=shops.shop_category ";
 
                     $query = mysqli_query($conn, $sql);
                     $c=1;
@@ -78,7 +78,7 @@
                         <tr>
                         <td><?php echo $c;?> </td>
                         <td><?php echo $row['productName'];?></td>
-                        <td><?php echo $row['farmer_id'];?></td>
+                        <td><?php echo $row['shop_id'];?></td>
                         <td><?php echo $row['categoryName'];?></td>
                         <td><?php echo $row['subcategory'];?></td>
                         <td><?php echo $row['productPrice']?></td>

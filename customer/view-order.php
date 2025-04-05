@@ -74,7 +74,7 @@ include('include/session.php');
 
 														<td class="cart-product-sub-total"><?php echo $price = $row['order_id']; ?> </td>
 														<td class="cart-product-sub-total"><?php echo $row['status']; ?> </td>
-														<td class="cart-product-sub-total"><?php echo $shippcharge = $row['farmer_location']; ?> </td>
+														<td class="cart-product-sub-total"><?php echo $shippcharge = $row['shop_location']; ?> </td>
 														<td class="cart-product-sub-total"><?php echo $row['remark']; ?> </td>
 														<td class="cart-product-sub-total"><?php echo $row['postingDate']; ?> </td>
 													</tr>

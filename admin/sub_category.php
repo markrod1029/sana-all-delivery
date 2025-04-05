@@ -47,7 +47,7 @@
                                 <table class="table table-bordered text-center" id="example1" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Farmer ID</th>
+                                            <th>Shop ID</th>
                                             <th>Category Name</th>
                                             <th>Sub Category </th>
                                             <th>Action</th>
@@ -60,8 +60,8 @@
       
 
 
-                    $sql = "SELECT *, subcategory.id AS subid FROM subcategory LEFT JOIN farmer ON farmer.id=subcategory.farmer_id
-                    LEFT JOIN category ON category.id = farmer.shop_category ";
+                    $sql = "SELECT *, subcategory.id AS subid FROM subcategory LEFT JOIN shops ON shops.id=subcategory.shop_id
+                    LEFT JOIN category ON category.id = shops.shop_category ";
                     $query = mysqli_query($conn, $sql);
                     $data = array();
 
@@ -70,7 +70,7 @@
                        
                     ?>
                         <tr>
-                        <td><?php echo $row['farmer_id'];?></td>
+                        <td><?php echo $row['shop_id'];?></td>
                         <td><?php echo $row['categoryName'];?></td>
                         <td><?php echo $row['subcategory'];?></td>
 

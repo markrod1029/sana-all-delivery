@@ -43,7 +43,7 @@ if (isset($_SESSION['success'])) {
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
-                                        <th>Farmer ID</th>
+                                        <th>Shop ID</th>
                                         <th>Customer ID</th>
                                         <th>Date</th>
                                         <th>Total Quantity</th>
@@ -60,7 +60,7 @@ if (isset($_SESSION['success'])) {
                                     $sql = "
                                         SELECT 
                                             o.order_id, 
-                                            f.farmerid AS farmer_id, 
+                                            f.shopid AS shop_id, 
                                             c.customer_id, 
                                             o.orderDate, 
                                             o.total_q, 
@@ -69,7 +69,7 @@ if (isset($_SESSION['success'])) {
                                             o.paymentMethod
                                         FROM orders o
                                         JOIN customer c ON o.customer_id = c.id
-                                        JOIN farmer f ON o.farmer_id = f.id
+                                        JOIN shops f ON o.shop_id = f.id
                                         WHERE  o.orderDate = '$today' AND o.orderStatus NOT IN ('Delivered', 'Cancel', 'wait')
                                     ";
 
@@ -93,7 +93,7 @@ if (isset($_SESSION['success'])) {
 
                                         <tr>
                                             <td><?php echo $row['order_id']; ?></td>
-                                            <td><?php echo $row['farmer_id']; ?></td>
+                                            <td><?php echo $row['shop_id']; ?></td>
                                             <td><?php echo $row['customer_id']; ?></td>
                                             <td><?php echo $row['orderDate']; ?></td>
                                             <td><?php echo $row['total_q']; ?></td>

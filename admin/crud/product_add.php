@@ -4,7 +4,7 @@
 	include 'session.php';
 
 	if(isset($_POST['submit'])){
-		$farmer_id = $_POST['farmer_id'];
+		$shop_id = $_POST['shop_id'];
 		$subcategory = $_POST['subcategory'];
 		$pname = $_POST['pname'];
 		$price = $_POST['price'];
@@ -19,8 +19,8 @@
 
   
             
-        $insert = "INSERT INTO products(farmer_id, subCategory_id, productName, productPrice,quantity, productDescription,photo1,postingDate) 
-		VALUES ('$farmer_id', '$subcategory', '$pname', '$price', '$quantity', '$description','$location1',  NOW())";
+        $insert = "INSERT INTO products(shop_id, subCategory_id, productName, productPrice,quantity, productDescription,photo1,postingDate) 
+		VALUES ('$shop_id', '$subcategory', '$pname', '$price', '$quantity', '$description','$location1',  NOW())";
 		if($conn->query($insert)){
 			$_SESSION['success'] = 'Product Added successfully';
 		}

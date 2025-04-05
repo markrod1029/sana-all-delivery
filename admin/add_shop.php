@@ -7,7 +7,7 @@
 <div class="content-wrapper">
 
     <section class="content-header">
-        <h1 class="h3 mb-4 text-gray">Farmer List</h1>
+        <h1 class="h3 mb-4 text-gray">Shop List</h1>
     </section>
 
 
@@ -18,7 +18,7 @@
         <div class="card-header py-3">
             <div class="row">
                 <div class="col">
-                    <h6 class="h3 m-0 font-weight-bold text-success">Farmer Info</h6>
+                    <h6 class="h3 m-0 font-weight-bold text-success">Shop Info</h6>
 
                 </div>
             </div>
@@ -30,11 +30,11 @@
 
 
                 <div class="form-group  row">
-                    <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Farmer ID </label>
+                    <label for="fname" class="col-sm-2 text-right control-label col-form-label text-muted">Shop ID </label>
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-circle"></i></span></div>
-                        <input type="text" class="form-control" name="farmerid" id="title" placeholder="Farmers ID Here" required="">
+                        <input type="text" class="form-control" name="shopid" id="title" placeholder="Shops ID Here" required="">
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="fname" id="title" placeholder="Farmer First Name Here" required="">
+                        <input type="text" class="form-control" name="fname" id="title" placeholder="Shop First Name Here" required="">
                     </div>
                 </div>
 
@@ -53,7 +53,7 @@
 
                     <div class="input-group col-sm-8 col-xs-11">
                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                        <input type="text" class="form-control" name="lname" id="title" placeholder="Farmer Last  Name Here" required="">
+                        <input type="text" class="form-control" name="lname" id="title" placeholder="Shop Last  Name Here" required="">
                     </div>
                 </div>
 

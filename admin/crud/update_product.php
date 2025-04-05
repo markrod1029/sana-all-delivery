@@ -4,7 +4,7 @@
 	include 'session.php';
 
 	if(isset($_POST['submit'])){
-		$farmer_id = $_POST['farmer_id'];
+		$shop_id = $_POST['shop_id'];
 		$category = $_POST['category'];
 		$subcategory = $_POST['subcategory'];
 		$pname = $_POST['pname'];
@@ -26,7 +26,7 @@
 
 
 		
-        $sql = "UPDATE products SET  farmer_id = '$farmer_id',  category = '$category', subCategory_id = '$subcategory', productName = '$pname', productPrice = '$price', quantity = '$quantity', productDescription = '$description' WHERE id = '$id'";
+        $sql = "UPDATE products SET  shop_id = '$shop_id',  category = '$category', subCategory_id = '$subcategory', productName = '$pname', productPrice = '$price', quantity = '$quantity', productDescription = '$description' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Product Updated successfully';
 		}
@@ -38,7 +38,7 @@
 
     else{
 
-        $sql = "UPDATE products SET  farmer_id = '$farmer_id',  category = '$category', subCategory_id = '$subcategory', productName = '$pname', productPrice = '$price', quantity = '$quantity', productDescription = '$description', photo1 = '$location1' WHERE id = '$id'";
+        $sql = "UPDATE products SET  shop_id = '$shop_id',  category = '$category', subCategory_id = '$subcategory', productName = '$pname', productPrice = '$price', quantity = '$quantity', productDescription = '$description', photo1 = '$location1' WHERE id = '$id'";
 
     }
   }

@@ -11,7 +11,7 @@
 
 		
             
-        $insert = "INSERT INTO ordertrackhistory(order_id,farmer_location, status, remark, postingDate) 
+        $insert = "INSERT INTO ordertrackhistory(order_id,shop_location, status, remark, postingDate) 
 		VALUES ('$order_id', '$location','$status', '$remark', NOW())";
 		if($conn->query($insert)){
 			$_SESSION['success'] = 'Order In Process Successfully';

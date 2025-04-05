@@ -4,7 +4,7 @@
 		
 <?php
 $id = $_GET['id'];
-$ret=mysqli_query($conn,"SELECT * from farmer WHERE id ='$id' ");
+$ret=mysqli_query($conn,"SELECT * from shops WHERE id ='$id' ");
 while ($rws=mysqli_fetch_array($ret)) {
 
 ?>

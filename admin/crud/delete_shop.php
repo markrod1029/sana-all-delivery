@@ -2,7 +2,7 @@
 	include 'session.php';
 	
 	$id = $_GET['id'];
-		$sql = "DELETE FROM farmer WHERE id = '$id'";
+		$sql = "DELETE FROM shops WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Shop Deleted successfully';
 		}
