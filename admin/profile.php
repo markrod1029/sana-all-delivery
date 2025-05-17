@@ -48,7 +48,7 @@
 
                         <form  class="form-horizontal" method="POST" action="crud/profile_update.php" enctype="multipart/form-data" id="doctor_form">
 
-                        <center><img class="img-circle" src="../images/logo.png" width="150px" height="150px">
+                        <center><img class="img-circle" src="../images/logo.jpg" width="150px" height="150px">
                             
                         <div class="form-group  row mt-4">
                                 <label for="fname" class="col-sm-3 text-right control-label col-form-label text-muted">Firtst Name </label>

@@ -72,7 +72,7 @@
                        
                     ?>
                         <tr>
-                        <td><img src="<?php echo (!empty($row['photo']))? '../images/'.$row['photo']:'../images/admin.png'; ?>" width="50px" height="50px"> 
+                        <td><img src="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" data-echo="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" width="50px" height="50px"> 
                        </td>
                         <td><?php echo $row['shopid'];?></td>
                         <td><?php echo $row['fname']. ' '.$row['lname'];?></td>

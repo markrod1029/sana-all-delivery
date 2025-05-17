@@ -10,7 +10,7 @@
 				<ul class="nav nav-checkout-progress list-unstyled">
 					<li><a href="my-account.php">My Account</a></li>
 					<li><a href="order-history.php">Order History</a></li>
-					<li><a href="pending-orders.php">Payment Pending Order</a></li>
+					<li><a href="pending-orders.php">Pending Order</a></li>
 					<li><a href="cancel-orders.php">Cancel Order</a></li>
 				</ul>		
 			</div>

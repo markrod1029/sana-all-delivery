@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2025 at 01:49 PM
+-- Generation Time: May 17, 2025 at 06:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -49,7 +49,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fname`, `mname`, `lname`, `email`, `contact`, `street`, `city`, `province`, `position`, `gender`, `photo`, `password`, `created_at`) VALUES
-(1, 'MAO', '', 'Admin', 'admin@gmail.com', '', 'Lilimasan', 'SC', 'Pangasinan', 'admin', 'Male', 'anime.jpg', '$2y$10$bfLNIxNDTcXJ5Sw/H62xqu3Su6p1rqPYLRB4m0gkPp3cJLB1Et7/q', '');
+(1, 'Karleigh Hicks', '', 'Keaton Kerr', 'admin@gmail.com', '', 'Officia eiusmod prae', 'Fuga Cupidatat unde', 'Rider', 'admin', 'Male', '', '$2y$10$bfLNIxNDTcXJ5Sw/H62xqu3Su6p1rqPYLRB4m0gkPp3cJLB1Et7/q', '');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ INSERT INTO `admin` (`id`, `fname`, `mname`, `lname`, `email`, `contact`, `stree
 
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
-  `farmer_id` int(11) NOT NULL,
+  `shop_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `cart_quantity` int(50) NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `customer_id` varchar(50) NOT NULL,
-  `photo` varchar(200) NOT NULL,
+  `photo` varchar(200) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `customer_number` bigint(11) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -103,38 +103,14 @@ CREATE TABLE `customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `farmer`
---
-
-CREATE TABLE `farmer` (
-  `id` int(11) NOT NULL,
-  `farmerid` varchar(50) NOT NULL,
-  `photo` varchar(100) NOT NULL,
-  `fname` varchar(50) NOT NULL,
-  `lname` varchar(50) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `position` varchar(50) NOT NULL,
-  `contactno` bigint(11) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `street` longtext DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `shop_category` int(11) NOT NULL,
-  `shop_logo` varchar(50) NOT NULL,
-  `shop_name` varchar(50) NOT NULL,
-  `regDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `farmer_id` int(11) NOT NULL,
+  `rider_id` int(11) DEFAULT NULL,
+  `shop_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `product_id` varchar(255) NOT NULL,
   `total_quantity` int(11) NOT NULL,
@@ -155,30 +131,10 @@ CREATE TABLE `orders` (
 CREATE TABLE `ordertrackhistory` (
   `id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
-  `farmer_id` varchar(11) NOT NULL,
-  `customer_id` varchar(11) NOT NULL,
-  `farmer_location` varchar(50) NOT NULL,
+  `rider_location` varchar(50) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `remark` mediumtext DEFAULT NULL,
   `postingDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `productreviews`
---
-
-CREATE TABLE `productreviews` (
-  `id` int(11) NOT NULL,
-  `productId` int(11) DEFAULT NULL,
-  `quality` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `value` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `summary` varchar(255) DEFAULT NULL,
-  `review` longtext DEFAULT NULL,
-  `reviewDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -189,7 +145,7 @@ CREATE TABLE `productreviews` (
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `farmer_id` int(11) NOT NULL,
+  `shop_id` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `subCategory_id` int(11) NOT NULL,
   `productName` varchar(255) NOT NULL,
@@ -207,12 +163,58 @@ CREATE TABLE `products` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rider`
+--
+
+CREATE TABLE `rider` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(50) NOT NULL,
+  `photo` varchar(100) DEFAULT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `position` varchar(50) NOT NULL,
+  `contactno` bigint(11) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `street` longtext DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `regDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shops`
+--
+
+CREATE TABLE `shops` (
+  `id` int(11) NOT NULL,
+  `shopid` varchar(50) NOT NULL,
+  `photo` varchar(100) DEFAULT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `position` varchar(50) NOT NULL,
+  `contactno` bigint(11) DEFAULT NULL,
+  `street` longtext DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `shop_category` int(11) DEFAULT NULL,
+  `shop_logo` varchar(50) DEFAULT NULL,
+  `shop_name` varchar(50) DEFAULT NULL,
+  `regDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcategory`
 --
 
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
-  `farmer_id` int(11) NOT NULL,
+  `shop_id` int(11) NOT NULL,
   `categoryid` int(11) DEFAULT NULL,
   `subcategory` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -246,12 +248,6 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `farmer`
---
-ALTER TABLE `farmer`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -264,15 +260,21 @@ ALTER TABLE `ordertrackhistory`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `productreviews`
---
-ALTER TABLE `productreviews`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rider`
+--
+ALTER TABLE `rider`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shops`
+--
+ALTER TABLE `shops`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -296,55 +298,55 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `farmer`
---
-ALTER TABLE `farmer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT for table `productreviews`
---
-ALTER TABLE `productreviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `rider`
+--
+ALTER TABLE `rider`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `shops`
+--
+ALTER TABLE `shops`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

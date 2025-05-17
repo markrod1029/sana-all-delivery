@@ -1,68 +1,55 @@
 <?php
-
 session_start();
+include '../include/conn.php';
 
-	include '../include/conn.php';
+if (isset($_POST['login'])) {
+    $name     = $_POST['name'];
+    $email    = $_POST['email'];
+    $contact  = $_POST['contact'];
+    $address  = $_POST['address'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-	if(isset($_POST['login'])){
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$contact = $_POST['contact'];
-		$street = $_POST['address'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    // Handle image upload
+    $location = NULL;
+    if (isset($_FILES["photo"]) && !empty($_FILES["photo"]["name"])) {
+        $fileinfo     = PATHINFO($_FILES["photo"]["name"]);
+        $newFilename  = $fileinfo['filename'] . "." . $fileinfo['extension'];
+        $uploadPath   = 'images/' . $newFilename;
 
-        $fileinfo=PATHINFO($_FILES["photo"]["name"]);
-        $newFilename=$fileinfo['filename']. "." . $fileinfo['extension'];
-        move_uploaded_file($_FILES["photo"]["tmp_name"],'images/' .$newFilename);
-        $location = 'images/'.$newFilename;
-
-
-        $numbers = '';
-            
-        for($i = 0; $i < 10; $i++){
-            $numbers .= $i;
+        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $uploadPath)) {
+            $location = $newFilename;
         }
-        $customer_id = substr(str_shuffle($numbers), 0, 9);
+    }
 
+    // Generate customer ID
+    $numbers = '0123456789';
+    $customer_id = substr(str_shuffle($numbers), 0, 9);
 
-        $sql = "SELECT email FROM customer  WHERE email = '".$email."' ";
-        $query = $conn->query($sql);
-        $result = mysqli_query($conn,$sql);
-        $count = mysqli_num_rows($result);
+    // Check if email already exists
+    $check_sql = "SELECT email FROM customer WHERE email = '$email'";
+    $check_query = mysqli_query($conn, $check_sql);
     
-        $row = $query->fetch_assoc();
-        
-    
-    
-    
-    
-        if ($count == 1 ) {
-        $_SESSION['error'] = 'Have already Email Address ';
-    
-        } 
-        
-        else{
+    if (mysqli_num_rows($check_query) > 0) {
+        $_SESSION['error'] = 'Email already exists';
+    } else {
+        if ($location === NULL) {
+            $insert_sql = "INSERT INTO customer (customer_id, photo, name, email, customer_number, customer_address, password, regDate)
+                           VALUES ('$customer_id', NULL, '$name', '$email', '$contact', '$address', '$password', NOW())";
+        } else {
+            $insert_sql = "INSERT INTO customer (customer_id, photo, name, email, customer_number, customer_address, password, regDate)
+                           VALUES ('$customer_id', '$location', '$name', '$email', '$contact', '$address', '$password', NOW())";
+        }
 
-            
-        $insert = "INSERT INTO customer(customer_id, photo, name, email, customer_number, customer_address, password, regDate) 
-		VALUES ('$customer_id', '$location', '$name', '$email', '$contact','$address', '$password', NOW())";
-		if($conn->query($insert)){
-			$_SESSION['success'] = 'Customer Register Successfully';
-		}
-		else{
-			$_SESSION['error'] = $conn->error;
-		}
-
-
-	}
+        if (mysqli_query($conn, $insert_sql)) {
+            $_SESSION['success'] = 'Customer registered successfully';
+        } else {
+            $_SESSION['error'] = 'Database error: ' . mysqli_error($conn);
+        }
+    }
+} else {
+    $_SESSION['error'] = 'Please fill up the form first';
 }
 
-
-	else{
-		$_SESSION['error'] = 'Fill up add form first';
-	}
-
-	
-    header('location: ../customer_login.php');
-
-    ?>
+header('Location: ../customer_login.php');
+exit;
+?>

@@ -50,11 +50,17 @@
 					
 							<a href="admin/home.php" class="btn btn-primary btn-lg w-50 shop-login">Dashboard</a>
 
+
 							<?php } else if (isset($_SESSION['customer']) && strlen($_SESSION['customer']) > 0) { ?>
-							<a href="customer/home.php" class="btn btn-primary btn-lg w-50 shop-login">Dashboard</a>
+							<a href="customer_login.php" class="btn btn-primary btn-lg w-50 shop-login">Dashboard</a>
+
+						<?php } else if(isset($_SESSION['customer']) && strlen($_SESSION['customer']) > 0){?>
+
 
 						<?php } else {
 						?>
+							<a href="rider_login.php" class="btn btn-primary btn-lg w-50 shop-login">Rider Login</a>
+						
 							<a href="customer_login.php" class="btn btn-primary btn-lg w-50 shop-login">Customer Login</a>
 
 						<?php } ?>

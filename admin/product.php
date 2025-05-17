@@ -48,7 +48,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Product Name</th>
-                                            <th>Shop ID</th>
                                             <th>category</th>
                                             <th>Sub Category</th>
                                             <th>Product Price</th>
@@ -78,7 +77,6 @@
                         <tr>
                         <td><?php echo $c;?> </td>
                         <td><?php echo $row['productName'];?></td>
-                        <td><?php echo $row['shop_id'];?></td>
                         <td><?php echo $row['categoryName'];?></td>
                         <td><?php echo $row['subcategory'];?></td>
                         <td><?php echo $row['productPrice']?></td>

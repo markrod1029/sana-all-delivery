@@ -1,8 +1,13 @@
 
 <?php
   session_start();
-  if(isset($_SESSION['shop'])){
-    header('location:shop/home.php');
+  if(isset($_SESSION['admin'])){
+    header('location:admin/home.php');
+
+  }
+
+  if(isset($_SESSION['rider'])){
+    header('location:rider/home.php');
 
   }
 
@@ -30,11 +35,11 @@
 
    </head>
    <body>
-   <form action="action/shop_action.php" method="post">
+   <form action="action/admin_action.php" method="post">
       <div class="bg-img">
          <div class="content">
              
-            <header>Shop Login Form</header>
+            <header>Login Form</header>
                  
             <?php
         if(isset($_SESSION['error'])){
@@ -69,14 +74,13 @@
                </div>
                <br>
 
-             </script>
+
                <div class="field">
                   <input type="submit" name="login" value="Login">
                </div>
 
              <br>
-
-             <span class="register">Log in Form  <a href="admin_login.php" class ="register">Admin Here</a></span>
+             <span class="register">Log in Form  <a href="customer_register.php" class ="register"> Customer Here</a></span>
 
 
             <br>
@@ -126,4 +130,6 @@ color:white;
 a{
     text-decoration:none !important;
 }
+ 
+
     </style>

@@ -28,7 +28,7 @@ if(isset($_POST['ordersubmit']))
 
 	if( $quantity<=$row['quantity']){
 
-		$sql ="INSERT INTO orders(order_id, farmer_id, customer_id, product_id, total_quantity, total_pay, orderDate,orderStatus)
+		$sql ="INSERT INTO orders(order_id, shop_id, customer_id, product_id, total_quantity, total_pay, orderDate,orderStatus)
 		  VALUES ('$order_id', '$farmer','$custmer','$value','$quantity','$pid',NOW(), 'wait')";
 
 

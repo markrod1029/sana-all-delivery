@@ -70,6 +70,7 @@
                     ?>
                         <tr>
                         <td><img src="<?php echo (!empty($row['photo']))? '../images/'.$row['photo']:'../images/admin.png'; ?>" width="50px" height="50px"> 
+
                        </td>
                         <td><?php echo $row['customer_id'];?></td>
                         <td><?php echo $row['name'];?></td>

@@ -31,7 +31,7 @@ include('include/config.php');
 
 
                     <?php
-                    $ret = mysqli_query($conn, "SELECT * from products WHERE farmer_id = '$id'");
+                    $ret = mysqli_query($conn, "SELECT * from products WHERE shop_id = '$id'");
                     while ($row = mysqli_fetch_array($ret)) { ?>
 
                         <div class="col-sm-2 mt-4 wow1">

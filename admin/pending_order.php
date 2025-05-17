@@ -97,7 +97,7 @@ if (isset($_SESSION['success'])) {
                                                 <a name="edit" href="view_order.php?id=<?php echo $row['order_id'] ?>" class="btn btn-primary btn-circle btn-sm"><i class="fas fa-eye"></i></a>
                                                 <a name="edit" href="update_order.php?id=<?php echo $row['order_id'] ?>" class="
                                                         btn btn-primary btn-circle btn-sm"><i class="fa fa-credit-card"></i></a>
-                                                <a name="delete" onclick="return confirm('Are you sure you want to go to delete this Product?')" href="crud/delete_product.php?id=<?php echo $row['order_id'] ?>" class="btn btn-danger btn-circle btn-sm delete_button"><i class="fas fa-times"></i></button>
+                                                <a name="delete" onclick="return confirm('Are you sure you want to Cancel this Product?')" href="crud/cancel_order.php?id=<?php echo $row['order_id'] ?>" class="btn btn-danger btn-circle btn-sm delete_button"><i class="fas fa-times"></i></button>
                         </div>
                         </td>
                         </tr>

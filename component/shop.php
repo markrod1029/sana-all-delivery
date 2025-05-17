@@ -14,7 +14,7 @@ while ($rws=mysqli_fetch_array($ret)) {
 					<div class="products">
 						<div class="hot-deal-wrapper">
 							<div class="image">
-							<center><img  src="<?php echo (!empty($rws['shop_logo']))? 'images/'.$rws['shop_logo']:'../images/admin.png'; ?>" width="200" height="334" alt="" style = " border-radius: 50%;"></center>
+							<center><img  src="<?php echo (!empty($rws['shop_logo']))? 'images/'.$rws['shop_logo']:'../images/admin.png'; ?>" width="200" height="334" alt="" ></center>
 							</div>
 							
 						</div><!-- /.hot-deal-wrapper -->

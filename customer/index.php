@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
 														<div class="product-image">
 															<div class="image">
 																<a href="visit_shop.php?id=<?php echo htmlentities($row['id']); ?>">
-																	<img src="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" data-echo="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" width="130" height="250" style="border-radius:50%;" alt=""></a>
+																	<img src="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" data-echo="<?php echo (!empty($row['shop_logo'])) ? '../images/' . $row['shop_logo'] : '../images/admin.png'; ?>" width="130" height="250"  alt=""></a>
 															</div>
 
 														</div>
